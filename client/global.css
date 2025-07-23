@@ -1,0 +1,184 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /**
+   * HopeHands Yellow-Green Theme
+   * Using 3+ shades of yellow and green for a vibrant, nature-inspired design
+   */
+  :root {
+    /* Base colors */
+    --background: 55 100% 98%; /* Very light yellow-green */
+    --foreground: 120 100% 8%; /* Deep forest green */
+
+    /* Card backgrounds */
+    --card: 57 100% 99%; /* Almost white with yellow tint */
+    --card-foreground: 140 90% 12%; /* Dark green */
+
+    /* Popover colors */
+    --popover: 60 100% 99%;
+    --popover-foreground: 130 85% 15%;
+
+    /* Primary colors - Green shades */
+    --primary: 142 76% 36%; /* Medium forest green */
+    --primary-foreground: 60 100% 98%; /* Light yellow-white */
+
+    /* Secondary colors - Yellow shades */
+    --secondary: 48 96% 89%; /* Light golden yellow */
+    --secondary-foreground: 145 85% 20%; /* Dark green */
+
+    /* Muted colors */
+    --muted: 55 80% 94%; /* Very light yellow */
+    --muted-foreground: 125 25% 45%; /* Muted green */
+
+    /* Accent colors - Bright combinations */
+    --accent: 45 93% 85%; /* Bright light yellow */
+    --accent-foreground: 150 90% 25%; /* Rich green */
+
+    /* Destructive (keep red for errors) */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    /* Borders and inputs */
+    --border: 50 60% 88%; /* Light yellow-green border */
+    --input: 52 50% 90%; /* Soft yellow input background */
+    --ring: 142 76% 36%; /* Green focus ring */
+
+    --radius: 0.75rem; /* Slightly more rounded for modern look */
+
+    /* Sidebar colors */
+    --sidebar-background: 58 90% 96%; /* Light yellow background */
+    --sidebar-foreground: 135 80% 20%; /* Dark green text */
+    --sidebar-primary: 45 95% 45%; /* Golden yellow */
+    --sidebar-primary-foreground: 150 100% 15%; /* Very dark green */
+    --sidebar-accent: 50 85% 92%; /* Very light yellow */
+    --sidebar-accent-foreground: 140 70% 25%; /* Medium green */
+    --sidebar-border: 55 40% 85%; /* Subtle yellow border */
+    --sidebar-ring: 142 76% 36%; /* Green ring */
+  }
+
+  .dark {
+    /* Dark theme with yellow-green combinations */
+    --background: 140 20% 8%; /* Dark forest green */
+    --foreground: 50 90% 92%; /* Light yellow */
+
+    --card: 135 25% 10%; /* Dark green card */
+    --card-foreground: 55 85% 90%; /* Light yellow text */
+
+    --popover: 138 22% 9%;
+    --popover-foreground: 52 88% 88%;
+
+    /* Dark primary - Brighter green */
+    --primary: 120 80% 50%; /* Bright green */
+    --primary-foreground: 140 30% 8%; /* Dark green */
+
+    /* Dark secondary - Muted yellow */
+    --secondary: 40 30% 20%; /* Dark yellow-brown */
+    --secondary-foreground: 65 90% 85%; /* Light yellow */
+
+    --muted: 135 20% 15%; /* Dark muted green */
+    --muted-foreground: 50 40% 65%; /* Muted yellow */
+
+    --accent: 45 60% 25%; /* Dark golden */
+    --accent-foreground: 120 60% 80%; /* Light green */
+
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 130 20% 18%; /* Dark green border */
+    --input: 135 15% 16%; /* Dark input */
+    --ring: 120 80% 50%; /* Bright green ring */
+
+    /* Dark sidebar */
+    --sidebar-background: 138 25% 6%; /* Very dark green */
+    --sidebar-foreground: 50 70% 80%; /* Light yellow */
+    --sidebar-primary: 50 85% 60%; /* Bright yellow */
+    --sidebar-primary-foreground: 140 90% 10%; /* Very dark green */
+    --sidebar-accent: 135 20% 12%; /* Dark green accent */
+    --sidebar-accent-foreground: 55 75% 75%; /* Light yellow */
+    --sidebar-border: 130 15% 15%; /* Dark border */
+    --sidebar-ring: 120 80% 50%; /* Green ring */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family:
+      "Inter",
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      Roboto,
+      sans-serif;
+  }
+
+  /* Enhanced typography for better readability */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-semibold;
+    letter-spacing: -0.025em;
+  }
+
+  /* Custom scrollbar with theme colors */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-accent rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary;
+  }
+}
+
+@layer components {
+  /* Custom gradient backgrounds */
+  .bg-gradient-yellow-green {
+    background: linear-gradient(135deg, hsl(45 95% 70%), hsl(120 70% 45%));
+  }
+
+  .bg-gradient-green-yellow {
+    background: linear-gradient(135deg, hsl(140 80% 40%), hsl(50 90% 60%));
+  }
+
+  /* Custom shadow with theme colors */
+  .shadow-theme {
+    box-shadow:
+      0 4px 6px -1px hsl(120 70% 45% / 0.1),
+      0 2px 4px -1px hsl(45 90% 50% / 0.06);
+  }
+
+  /* Animated gradient text */
+  .text-gradient-animated {
+    @apply bg-gradient-to-r from-green-600 via-yellow-500 to-green-500 bg-clip-text text-transparent;
+    background-size: 200% 200%;
+    animation: gradient-shift 3s ease-in-out infinite;
+  }
+
+  @keyframes gradient-shift {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+}
